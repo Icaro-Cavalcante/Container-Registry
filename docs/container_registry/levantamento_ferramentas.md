@@ -10,8 +10,7 @@ públicos genéricos, hospedando imagens tanto de projetos abertos quanto de rep
 privados pagos.
 
 Esta seção apresenta um levantamento das principais soluções utilizadas pela indústria,
-servindo de base para a análise comparativa aprofundada que será conduzida
-posteriormente (ver `docs/analise_comparativa.md`, de responsabilidade de ELI).
+servindo de base para a análise comparativa aprofundada.
 
 ## 2. Principais Soluções
 
@@ -124,7 +123,7 @@ versão self-hosted/enterprise) é um registry com forte ênfase em segurança.
 > Esta tabela é um resumo inicial de caráter introdutório. A análise comparativa
 > aprofundada — cobrindo autenticação, versionamento, segurança, integração com
 > pipelines CI/CD e replicação de imagens, conforme exigido pelo edital — será
-> detalhada em `docs/analise_comparativa.md` (ELI-03), com base neste levantamento.
+> detalhada em `docs/analise_comparativa.md`, com base neste levantamento.
 
 ## 4. Considerações Finais
 
@@ -134,4 +133,4 @@ adotado pela organização (AWS, GCP, GitHub), a necessidade de hospedagem próp
 requisitos de compliance (Harbor, Nexus, Quay self-hosted) e o nível de maturidade em
 segurança exigido (escaneamento de vulnerabilidades, assinatura de imagens, RBAC). Esse
 panorama servirá de insumo direto para os cenários de aplicação e boas práticas a serem
-consolidados posteriormente em `docs/cenarios_boas_praticas.md` (ASH-03).
+consolidados posteriormente em `docs/cenarios_boas_praticas.md`.
