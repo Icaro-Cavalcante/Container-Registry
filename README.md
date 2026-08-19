@@ -88,11 +88,13 @@ O trabalho aborda os seguintes temas:
 │   │   ├── documentacao_dockerfile.md
 │   │   └── guia_docker_hub.md
 │   │
-│   └── registry-management/
-│       ├── analise_comparativa.md
-│       ├── seguranca_autenticacao.md
-│       ├── tendencias_desafios.md
-│       └── versionamento.md
+│   ├── registry-management/
+│   │   ├── analise_comparativa.md
+│   │   ├── seguranca_autenticacao.md
+│   │   ├── tendencias_desafios.md
+│   │   └── versionamento.md
+│   │
+│   └── referencial_teorico.md
 ```
 
 ### 📁 container_registry
