@@ -14,7 +14,7 @@ servindo de base para a análise comparativa aprofundada.
 
 ## 2. Principais Soluções
 
-### 2.1 Docker Hub
+### 2.1 [Docker Hub](https://hub.docker.com/)
 
 O **Docker Hub** é o registry público mais conhecido e o padrão *default* utilizado
 pelo Docker CLI quando nenhum outro registry é especificado. Mantido pela Docker, Inc.,
@@ -28,7 +28,6 @@ e verificadas para tecnologias amplamente usadas, como `nginx`, `postgres`, `pyt
   com garantias de segurança e manutenção; integração nativa com o Docker CLI.
 
 ### 2.2 GitHub Container Registry (GHCR)
-
 O **GHCR** é o registry de containers integrado ao GitHub, permitindo publicar imagens
 associadas diretamente a um repositório ou a uma organização do GitHub.
 
@@ -125,12 +124,25 @@ versão self-hosted/enterprise) é um registry com forte ênfase em segurança.
 > pipelines CI/CD e replicação de imagens, conforme exigido pelo edital — será
 > detalhada em `docs/analise_comparativa.md`, com base neste levantamento.
 
-## 4. Considerações Finais
+## 4. Referências
 
-O levantamento evidencia que a escolha de um Container Registry não é apenas uma
-decisão técnica, mas também estratégica: envolve considerar o ecossistema de nuvem já
-adotado pela organização (AWS, GCP, GitHub), a necessidade de hospedagem própria por
-requisitos de compliance (Harbor, Nexus, Quay self-hosted) e o nível de maturidade em
-segurança exigido (escaneamento de vulnerabilidades, assinatura de imagens, RBAC). Esse
-panorama servirá de insumo direto para os cenários de aplicação e boas práticas a serem
-consolidados posteriormente em `docs/cenarios_boas_praticas.md`.
+- DOCKER INC. **Docker Hub**. Disponível em: <https://hub.docker.com/>.
+- GITHUB. **Working with the Container registry**. GitHub Docs. Disponível em:
+  <https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry>.
+- AMAZON WEB SERVICES (AWS). **Private registry authentication in Amazon ECR**.
+  Amazon ECR User Guide. Disponível em:
+  <https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html>.
+- GOOGLE. **Artifact Registry overview**. Google Cloud Documentation. Disponível em:
+  <https://cloud.google.com/artifact-registry/docs/overview>.
+- CNCF / HARBOR. **Harbor Documentation**. Disponível em:
+  <https://goharbor.io/docs/main/>.
+- SONATYPE. **Nexus Repository 3 Documentation**. Disponível em:
+  <https://help.sonatype.com/repomanager3>.
+- RED HAT. **Quay.io overview**. Red Hat Quay Documentation. Disponível em:
+  <https://docs.redhat.com/en/documentation/red_hat_quay/3/html/about_quay_io/quayio-overview>.
+- SHU, R.; GU, X.; ENCK, W. **A Study of Security Vulnerabilities on Docker Hub**. In:
+  Proceedings of the Seventh ACM Conference on Data and Application Security and
+  Privacy (CODASPY '17), 2017. Disponível em:
+  <https://dl.acm.org/doi/10.1145/3029806.3029832>.
+  *(referência científica revisada por pares, utilizada para embasar a discussão sobre
+  segurança e escaneamento de vulnerabilidades entre os registries comparados.)*
