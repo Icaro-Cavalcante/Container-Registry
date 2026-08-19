@@ -56,7 +56,11 @@ Além disso, o registry viabiliza práticas como:
   a um número de versão, permitindo rollback rápido para uma versão anterior estável;
 - **Auditoria e segurança**: registries modernos oferecem escaneamento de
   vulnerabilidades, controle de acesso granular e trilhas de auditoria sobre quem
-  publicou ou consumiu determinada imagem.
+  publicou ou consumiu determinada imagem. Esse cuidado não é apenas teórico: um estudo
+  acadêmico que analisou mais de 350 mil imagens do Docker Hub encontrou, em média,
+  mais de 180 vulnerabilidades por imagem, muitas delas propagadas de imagens-pai para
+  imagens-filha sem atualização (SHU; GU; ENCK, 2017), o que reforça a importância do
+  papel de auditoria e escaneamento desempenhado pelo registry.
 
 ## 4. Conceitos Fundamentais
 
@@ -71,8 +75,9 @@ ambiente e arquivos de configuração. É a partir de uma imagem que um ou mais
 
 Internamente, uma imagem não é um bloco único de dados, mas sim uma **pilha de
 camadas** (layers), onde cada camada representa uma instrução do Dockerfile (por
-exemplo, `RUN`, `COPY`, `ADD`). Esse modelo em camadas traz vantagens importantes para
-o registry:
+exemplo, `RUN`, `COPY`, `ADD`), conforme descrito na
+[documentação oficial do Docker sobre storage drivers](https://docs.docker.com/storage/storagedriver/).
+Esse modelo em camadas traz vantagens importantes para o registry:
 
 - **Reuso e cache**: camadas idênticas entre imagens diferentes são armazenadas apenas
   uma vez, economizando espaço em disco e banda de rede;
@@ -112,12 +117,12 @@ formatos de imagem e runtime de containers, evitando o *lock-in* em uma implemen
 específica (como o formato proprietário original do Docker). Ela define principalmente
 três especificações relevantes para este trabalho:
 
-- **OCI Image Format Specification**: define a estrutura de uma imagem (manifest,
-  camadas, configuração);
-- **OCI Distribution Specification**: define a API HTTP usada por clientes e
-  registries para push/pull de imagens — é essa especificação que garante que
-  ferramentas como Docker, Podman e diferentes registries (Docker Hub, GHCR, Harbor
-  etc.) sejam interoperáveis entre si;
+- **[OCI Image Format Specification](https://github.com/opencontainers/image-spec)**:
+  define a estrutura de uma imagem (manifest, camadas, configuração);
+- **[OCI Distribution Specification](https://github.com/opencontainers/distribution-spec)**:
+  define a API HTTP usada por clientes e registries para push/pull de imagens — é essa
+  especificação que garante que ferramentas como Docker, Podman e diferentes registries
+  (Docker Hub, GHCR, Harbor etc.) sejam interoperáveis entre si;
 - **OCI Runtime Specification**: define como um container deve ser executado a partir
   de uma imagem descompactada.
 
@@ -125,3 +130,18 @@ Graças à padronização da OCI, uma imagem publicada em um registry pode ser c
 por qualquer cliente compatível, independentemente de qual ferramenta a construiu ou
 qual registry a armazena — o que é essencial para o ecossistema de Gerência de
 Configuração e DevOps abordado neste trabalho.
+
+## 5. Referências
+
+- OPEN CONTAINER INITIATIVE. **OCI Distribution Specification**. Disponível em:
+  <https://github.com/opencontainers/distribution-spec>.
+- OPEN CONTAINER INITIATIVE. **OCI Image Format Specification**. Disponível em:
+  <https://github.com/opencontainers/image-spec>.
+- DOCKER INC. **About storage drivers** (camadas e arquitetura de imagens). Docker
+  Documentation. Disponível em: <https://docs.docker.com/storage/storagedriver/>.
+- SHU, R.; GU, X.; ENCK, W. **A Study of Security Vulnerabilities on Docker Hub**. In:
+  Proceedings of the Seventh ACM Conference on Data and Application Security and
+  Privacy (CODASPY '17), 2017. Disponível em:
+  <https://dl.acm.org/doi/10.1145/3029806.3029832>.
+  *(referência científica revisada por pares, utilizada para embasar a discussão sobre
+  o papel do registry na segurança da cadeia de distribuição de imagens.)*'
