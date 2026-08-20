@@ -112,10 +112,17 @@ Concentra as análises relacionadas à Gerência de Configuração, incluindo co
 ---
 ## 🐳 Exemplo prático
 A parte prática utiliza Docker e Docker Hub para demonstrar, de forma simples, o fluxo de gerenciamento de uma imagem:
-
+```
 Dockerfile → Build → Imagem → Tag → Push → Docker Hub → Pull → Execução
+```
+### A Aplicação: 
+Simulador de tráfego urbano escrito em C, com threads POSIX (```pthread.h```), mutexes e sincronização.
 
-O exemplo tem caráter demonstrativo, servindo para relacionar a fundamentação teórica com a utilização de um Container Registry.
+### O Problema de Configuração: 
+Depende de APIs exclusivas do Linux, impedindo a compilação nativa no Windows sem ambientes complexos.
+
+### A Solução: 
+Usar o Container Registry para distribuir um ambiente de execução isolado, garantindo que qualquer máquina rode o mesmo binário sem recompilar o código.
 
 ---
 ## 📖 Referencial Teórico
